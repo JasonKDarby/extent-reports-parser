@@ -1,0 +1,30 @@
+apply plugin: 'groovy'
+apply plugin: 'codenarc'
+apply plugin: 'jacoco'
+
+repositories {
+  jcenter()
+}
+
+group = 'com.jdarb'
+version = '0.1.0'
+
+dependencies {
+  compile 'org.codehaus.groovy:groovy:2.4.6'
+  compile 'com.typesafe:config:1.3.0'
+  testCompile 'com.relevantcodes:extentreports:2.41.0'
+}
+
+codenarc {
+  toolVersion = '0.25.2'
+}
+
+File codenarcConfigDir = file("$projectDir/config/codenarc")
+
+codenarcMain {
+  config = resources.text.fromFile("$codenarcConfigDir/main.groovy")
+}
+
+codenarcTest {
+  config = resources.text.fromFile("$codenarcConfigDir/test.groovy")
+}
