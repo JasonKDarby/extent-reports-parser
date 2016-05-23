@@ -1,18 +1,40 @@
+import geb.gradle.saucelabs.SauceAccount
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'org.gebish:geb-gradle:0.13.1'
+  }
+}
+
 apply plugin: 'groovy'
 apply plugin: 'codenarc'
 apply plugin: 'jacoco'
+apply plugin: 'geb-saucelabs'
 
 repositories {
   jcenter()
+  maven { url 'http://repository-saucelabs.forge.cloudbees.com/release' }
 }
 
 group = 'com.jdarb'
 version = '0.1.0'
 
 dependencies {
-  compile 'org.codehaus.groovy:groovy:2.4.6'
-  compile 'com.typesafe:config:1.3.0'
+  compile 'org.codehaus.groovy:groovy-all:2.4.6'
+  compile 'org.gebish:geb-core:0.13.1'
+  compile 'org.seleniumhq.selenium:selenium-chrome-driver:2.52.0'
+  compile 'org.seleniumhq.selenium:selenium-remote-driver:2.52.0'
+  compile 'org.seleniumhq.selenium:selenium-support:2.52.0'
   testCompile 'com.relevantcodes:extentreports:2.41.0'
+  testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+  testCompile 'org.gebish:geb-spock:0.13.1'
+  testCompile 'io.vertx:vertx-core:3.2.1'
+  testCompile 'io.vertx:vertx-lang-groovy:3.2.1'
+  testCompile 'io.vertx:vertx-web:3.2.1'
+  sauceConnect 'com.saucelabs:ci-sauce:1.114'
 }
 
 codenarc {
@@ -27,4 +49,23 @@ codenarcMain {
 
 codenarcTest {
   config = resources.text.fromFile("$codenarcConfigDir/test.groovy")
+}
+
+//I'm not a huge fan of doing this but until I can justify unit tests and moving geb tests to an integrationTest
+//sourceset it seems like the right move.
+test.enabled = false
+
+sauceLabs {
+  browsers {
+    chrome_linux
+  }
+  task {
+    testClassesDir = test.testClassesDir
+    testSrcDirs = test.testSrcDirs
+    classpath = test.classpath
+  }
+  account {
+    username = System.getenv SauceAccount.USER_ENV_VAR
+    accessKey = System.getenv SauceAccount.ACCESS_KEY_ENV_VAR
+  }
 }
