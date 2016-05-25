@@ -7,3 +7,23 @@ To use it you'll need to have a [SauceLabs](https://saucelabs.com/) account and 
 Both the tests and the library itself use [Geb](http://www.gebish.org/).  I didn't have much luck trying to use headless options like [htmlunit](http://htmlunit.sourceforge.net/).
 
 I'll add more features as necessary or as requested.
+
+Check out the tests for more information, but as a quick sample:
+```groovy
+List<TestNode> result = new ExtentReportParser(reportUrl)
+[
+  [
+    name: 'basic test',
+    status: 'Pass',
+    stepDetails: [
+      logs: [
+        [
+          status: 'pass',
+          details: 'PASS'
+        ] as DetailLog
+      ],
+      tests: []
+    ] as StepDetails
+  ] as TestNode
+] == result
+```
