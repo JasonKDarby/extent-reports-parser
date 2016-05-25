@@ -1,3 +1,15 @@
+To get it as a dependency (for now) you can add my [bintray repository](https://bintray.com/jasonkdarby/generic/extent-report-parser/view).
+via gradle:
+```groovy
+repositories {
+  maven { url 'https://dl.bintray.com/jasonkdarby/generic' }
+}
+
+dependencies {
+  testCompile 'com.jdarb:extent-report-parser:0.1'
+}
+```
+
 This is intended to be a library to assist with testing [Anshoo Aurora's Extent Reports](https://github.com/anshooarora/extentreports).
 
 It was originally created to assist with testing test framework plugins that generate reports.
