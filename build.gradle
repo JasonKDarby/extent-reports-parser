@@ -55,6 +55,12 @@ codenarcTest {
   config = resources.text.fromFile("$codenarcConfigDir/test.groovy")
 }
 
+jacocoTestReport {
+  reports {
+    xml.enabled true
+  }
+}
+
 //I'm not a huge fan of doing this but until I can justify unit tests and moving geb tests to an integrationTest
 //sourceset it seems like the right move.
 test.enabled = false
