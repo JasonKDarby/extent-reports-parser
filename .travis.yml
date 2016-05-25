@@ -6,8 +6,11 @@ jdk:
 script:
   - ./gradlew check allSauceLabsTests
 
+before_install:
+  - pip install --user codecov
+
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - codecov
 
 addons:
   sauce_connect: true
