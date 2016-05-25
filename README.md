@@ -1,3 +1,5 @@
+#ExtentReports Parser [![Build Status](https://travis-ci.org/JasonKDarby/extent-reports-parser.svg?branch=master)](https://travis-ci.org/JasonKDarby/extent-reports-parser)
+
 To get it as a dependency (for now) you can add my [bintray repository](https://bintray.com/jasonkdarby/generic/extent-report-parser/view).
 via gradle:
 ```groovy
