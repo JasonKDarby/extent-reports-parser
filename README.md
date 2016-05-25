@@ -10,7 +10,7 @@ I'll add more features as necessary or as requested.
 
 Check out the tests for more information, but as a quick sample:
 ```groovy
-List<TestNode> result = new ExtentReportParser(reportUrl)
+List<TestNode> result = new ExtentReportParser(reportUrl).tests
 [
   [
     name: 'basic test',
