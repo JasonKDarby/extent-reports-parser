@@ -1,4 +1,4 @@
-#ExtentReports Parser [![Build Status](https://travis-ci.org/JasonKDarby/extent-reports-parser.svg?branch=master)](https://travis-ci.org/JasonKDarby/extent-reports-parser)
+#ExtentReports Parser [![Build Status](https://travis-ci.org/JasonKDarby/extent-reports-parser.svg?branch=master)](https://travis-ci.org/JasonKDarby/extent-reports-parser) [![codecov](https://codecov.io/gh/JasonKDarby/extent-reports-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/JasonKDarby/extent-reports-parser)
 
 To get it as a dependency (for now) you can add my [bintray repository](https://bintray.com/jasonkdarby/generic/extent-report-parser/view).
 via gradle:
