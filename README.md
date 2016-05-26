@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-  testCompile 'com.jdarb:extent-report-parser:0.1'
+  testCompile 'com.jdarb:extent-reports-parser:0.1'
 }
 ```
 
